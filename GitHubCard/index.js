@@ -125,21 +125,10 @@
 // </div>
 
 
-// let followersArray = ['tetondan'];
- // My Github account data
-    let loginArray = ['seanaleid','DannyManzietti','crsullivan']
-    
-    axios.get('https://api.github.com/users')
-    .then(response => {
-      console.log(response.data)
-      loginArray.forEach( items => {
-        console.log(items)
-        container.appendChild(gitCard(`https://api.github.com/users/ ${items}`))
-      })
-    })
 
 
 
+// My Github account data
 
     axios.get('https://api.github.com/users/Techne3')
     .then(response => {
@@ -148,9 +137,26 @@
     })
     .catch(error=>{
       console.log("This looks wrong", error)
-     } )
+    } )
       
 
+
+    // array of user Names
+    let loginArray = ['seanaleid', 'DannyManzietti' ,'rashmipoddar','crsullivan','mary-clayton','sydneyblom','WilliamBerlin76','alecblkly','roywakumelojr','markpkng','beautytechy','EvanAntunano','DTjohnson5','Chard79','bbaney','Gavin-Dreyer',]
+    
+
+    loginArray.forEach(name => {
+      axios.get(`https://api.github.com/users/${name}`)
+      .then(response => {
+          console.log(response)
+          container.appendChild(gitCard(response.data))
+      })
+      .catch((error) =>{
+        console.log(error, 'Error')
+      })
+    })
+
+   
     //looping through my gitHub followers api 
     // make an array to loop through
     axios
@@ -168,4 +174,23 @@
     })
  
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+    // axios.get(`https://api.github.com/users/${items}`)
+    // .then(response => {
+    //   console.log(response.data)
+    //   loginArray.forEach( items => {
+    //     console.log(items)
+    //     container.appendChild(gitCard(response.data))
+    //   })
+    // })
