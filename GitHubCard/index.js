@@ -107,24 +107,7 @@
 
       return newCard
     }
-    // const entryPoint = document.querySelector(".entry")
-
-//     <div class="card">
-//      <img src={image url of user} />
-//   <div class="card-info">
-//     <h3 class="name">{users name}</h3>
-//     <p class="username">{users user name}</p>
-//     <p>Location: {users location}</p>
-//     <p>Profile:  
-//       <a href={address to users github page}>{address to users github page}</a>
-//     </p>
-//     <p>Followers: {users followers count}</p>
-//     <p>Following: {users following count}</p>
-//     <p>Bio: {users bio}</p>
-//   </div>
-// </div>
-
-
+   
 
 
 
@@ -141,10 +124,10 @@
       
 
 
-    // array of user Names
-    let loginArray = ['seanaleid', 'DannyManzietti' ,'rashmipoddar','crsullivan','mary-clayton','sydneyblom','WilliamBerlin76','alecblkly','roywakumelojr','markpkng','beautytechy','EvanAntunano','DTjohnson5','Chard79','bbaney','Gavin-Dreyer',]
+    // array of user Names 
+    let loginArray = ['seanaleid', 'DannyManzietti' ,'rashmipoddar','crsullivan','mary-clayton','sydneyblom','WilliamBerlin76','alecblkly','roywakumelojr','markpkng','beautytechy','EvanAntunano','DTjohnson5','Chard79','bbaney','Gavin-Dreyer']
     
-
+    //loop through user names to get correct key values
     loginArray.forEach(name => {
       axios.get(`https://api.github.com/users/${name}`)
       .then(response => {
@@ -152,13 +135,12 @@
           container.appendChild(gitCard(response.data))
       })
       .catch((error) =>{
-        console.log(error, 'Error')
+        console.log(error)
       })
     })
 
    
     //looping through my gitHub followers api 
-    // make an array to loop through
     axios
     .get('https://api.github.com/users/Techne3/followers')
     .then(response =>{
@@ -175,22 +157,3 @@
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // axios.get(`https://api.github.com/users/${items}`)
-    // .then(response => {
-    //   console.log(response.data)
-    //   loginArray.forEach( items => {
-    //     console.log(items)
-    //     container.appendChild(gitCard(response.data))
-    //   })
-    // })
